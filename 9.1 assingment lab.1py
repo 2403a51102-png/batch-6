@@ -1,0 +1,65 @@
+def add_expense(expenses: dict, category: str, amount: float) -> dict:
+    """
+    Adds an expense to the specified category in the expenses dictionary.
+
+    Args:
+        expenses (dict): A dictionary containing expense categories and their totals.
+        category (str): The category to which the expense should be added.
+        amount (float): The amount of the expense.
+
+    Returns:
+        dict: Updated expenses dictionary with the new amount added.
+
+    Example:
+        updated = add_expense({'food': 100.0}, 'food', 25.0)
+    """
+    expenses[category] = expenses.get(category, 0.0) + amount
+    return expenses
+
+
+def calculate_total(expenses: dict) -> float:
+    """
+    Calculates the total of all expenses across categories.
+
+    Args:
+        expenses (dict): A dictionary containing expense categories and their totals.
+
+    Returns:
+        float: The sum of all expense amounts.
+
+    Example:
+        total = calculate_total({'food': 100.0, 'transport': 50.0})
+    """
+    return sum(expenses.values())
+
+
+def get_highest_category(expenses: dict) -> str:
+    """
+    Identifies the category with the highest expense.
+
+    Args:
+        expenses (dict): A dictionary containing expense categories and their totals.
+
+    Returns:
+        str: The category name with the highest expense.
+
+    Example:
+        top = get_highest_category({'food': 100.0, 'transport': 150.0})
+    """
+    return max(expenses, key=expenses.get)
+
+
+def reset_expenses() -> dict:
+    """
+    Resets all expenses by returning an empty dictionary.
+
+    Args:
+        None
+
+    Returns:
+        dict: An empty dictionary representing cleared expenses.
+
+    Example:
+        cleared = reset_expenses()
+    """
+    return {}
